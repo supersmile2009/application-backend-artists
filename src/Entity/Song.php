@@ -127,4 +127,14 @@ class Song
         }
         $this->length = $parts[0] * 60 + $parts[1];
     }
+
+    /**
+     * Returns song length as string formatted as "mm:ss".
+     *
+     * @return string
+     */
+    public function getLengthAsString(): string
+    {
+        return gmdate('i:s', $this->length);
+    }
 }
