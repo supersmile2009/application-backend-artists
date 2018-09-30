@@ -5,10 +5,11 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="Doctrine\ORM\EntityRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\AlbumRepository")
  * @ORM\Table(name="album")
  *
  * @UniqueEntity(fields={"token"})
@@ -32,6 +33,8 @@ class Album
      * @Assert\NotBlank(groups={"update"})
      * @Assert\Length(min="6", max="6")
      * @Assert\Regex("/^[A-Z0-9]+$/")
+     *
+     * @Serializer\Groups({"artists_list", "artist_show", "album_show"})
      */
     private $token;
 
@@ -42,6 +45,8 @@ class Album
      *
      * @Assert\NotBlank()
      * @Assert\Length(min="1", max="100")
+     *
+     * @Serializer\Groups({"artists_list", "artist_show", "album_show"})
      */
     private $title;
 
@@ -52,6 +57,8 @@ class Album
      *
      * @Assert\Url()
      * @Assert\Length(max="255")
+     *
+     * @Serializer\Groups({"artists_list", "artist_show", "album_show"})
      */
     private $cover;
 
@@ -59,6 +66,8 @@ class Album
      * @var string
      *
      * @ORM\Column(name="description", type="text")
+     *
+     * @Serializer\Groups({"album_show"})
      */
     private $description;
 
@@ -69,6 +78,8 @@ class Album
      * @ORM\JoinColumn(name="artist_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      *
      * @Assert\NotNull()
+     *
+     * @Serializer\Groups({"album_show"})
      */
     protected $artist;
 
@@ -81,6 +92,8 @@ class Album
      *     cascade={"persist"},
      *     orphanRemoval=true
      * )
+     *
+     * @Serializer\Groups({"album_show"})
      */
     private $songs;
 

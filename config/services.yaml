@@ -27,6 +27,11 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+    App\Repository\:
+        resource: '../src/Repository'
+        tags: ['doctrine.repository_service']
+        lazy: true
+
     App\EventListener\ArtistListener:
         tags:
         - { name: doctrine.orm.entity_listener, entity: App\Entity\Artist, event: prePersist }
@@ -34,3 +39,7 @@ services:
     App\EventListener\AlbumListener:
         tags:
         - { name: doctrine.orm.entity_listener, entity: App\Entity\Album, event: prePersist }
+
+    Symfony\Component\Serializer\Normalizer\GetSetMethodNormalizer:
+        public: false
+        tags: [serializer.normalizer]

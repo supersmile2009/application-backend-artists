@@ -5,10 +5,11 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Serializer\Annotation as Serializer;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="Doctrine\ORM\EntityRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ArtistRepository")
  * @ORM\Table(name="artist")
  *
  * @UniqueEntity(fields={"token"})
@@ -32,6 +33,8 @@ class Artist
      * @Assert\NotBlank(groups={"update"})
      * @Assert\Length(min="6", max="6")
      * @Assert\Regex("/^[A-Z0-9]+$/")
+     *
+     * @Serializer\Groups({"artists_list", "artist_show", "album_show"})
      */
     private $token;
 
@@ -42,6 +45,8 @@ class Artist
      *
      * @Assert\NotBlank()
      * @Assert\Length(min="1", max="100")
+     *
+     * @Serializer\Groups({"artists_list", "artist_show", "album_show"})
      */
     private $name;
 
@@ -54,6 +59,8 @@ class Artist
      *     cascade={"persist"},
      *     orphanRemoval=true
      * )
+     *
+     * @Serializer\Groups({"artists_list", "artist_show"})
      */
     private $albums;
 
