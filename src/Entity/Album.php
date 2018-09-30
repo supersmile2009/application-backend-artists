@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Entity;
 
@@ -43,7 +45,7 @@ class Album
      *
      * @ORM\Column(name="title", type="string", length=100)
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank
      * @Assert\Length(min="1", max="100")
      *
      * @Serializer\Groups({"artists_list", "artist_show", "album_show"})
@@ -55,7 +57,7 @@ class Album
      *
      * @ORM\Column(name="cover", type="string", length=255, nullable=true)
      *
-     * @Assert\Url()
+     * @Assert\Url
      * @Assert\Length(max="255")
      *
      * @Serializer\Groups({"artists_list", "artist_show", "album_show"})
@@ -77,7 +79,7 @@ class Album
      * @ORM\ManyToOne(targetEntity="App\Entity\Artist", inversedBy="albums")
      * @ORM\JoinColumn(name="artist_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      *
-     * @Assert\NotNull()
+     * @Assert\NotNull
      *
      * @Serializer\Groups({"album_show"})
      */
@@ -112,7 +114,7 @@ class Album
         return $this->token;
     }
 
-    public function setToken(?string $token): void 
+    public function setToken(?string $token): void
     {
         $this->token = $token;
     }
@@ -122,7 +124,7 @@ class Album
         return $this->title;
     }
 
-    public function setTitle(?string $title): void 
+    public function setTitle(?string $title): void
     {
         $this->title = $title;
     }
@@ -132,7 +134,7 @@ class Album
         return $this->cover;
     }
 
-    public function setCover(?string $cover): void 
+    public function setCover(?string $cover): void
     {
         $this->cover = $cover;
     }
@@ -142,7 +144,7 @@ class Album
         return $this->description;
     }
 
-    public function setDescription(?string $description): void 
+    public function setDescription(?string $description): void
     {
         $this->description = $description;
     }

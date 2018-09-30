@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\DataFixtures;
 
@@ -10,7 +12,7 @@ use Doctrine\Common\Persistence\ObjectManager;
 class SongFixtures extends Fixture implements DependentFixtureInterface
 {
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getDependencies()
     {
@@ -20,7 +22,7 @@ class SongFixtures extends Fixture implements DependentFixtureInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function load(ObjectManager $manager)
     {

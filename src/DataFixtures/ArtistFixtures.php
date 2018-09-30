@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\DataFixtures;
 
@@ -10,8 +12,9 @@ class ArtistFixtures extends Fixture
 {
     public const RADIOHEAD_REFERENCE = 'artist_radiohead';
     public const PORTISHEAD_REFERENCE = 'artist_portishead';
+
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function load(ObjectManager $manager)
     {
@@ -27,5 +30,4 @@ class ArtistFixtures extends Fixture
 
         $manager->flush();
     }
-
 }

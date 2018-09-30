@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Entity;
 
@@ -43,7 +45,7 @@ class Artist
      *
      * @ORM\Column(name="title", type="string", length=100)
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank
      * @Assert\Length(min="1", max="100")
      *
      * @Serializer\Groups({"artists_list", "artist_show", "album_show"})
@@ -83,7 +85,6 @@ class Artist
     {
         $this->token = $token;
     }
-
 
     public function getName(): ?string
     {

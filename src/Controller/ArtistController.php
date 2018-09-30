@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Controller;
 
@@ -6,9 +8,7 @@ use App\Entity\Artist;
 use App\Repository\ArtistRepository;
 use FOS\RestBundle\Controller\Annotations as FOS;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Entity;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\Routing\Annotation\Route;
 
 class ArtistController extends AbstractController
 {
@@ -18,8 +18,8 @@ class ArtistController extends AbstractController
      * @FOS\QueryParam(name="perPage", requirements="\d+", default="30")
      * @FOS\View(serializerGroups={"artists_list"})
      *
-     * @param int $page
-     * @param int $perPage
+     * @param int              $page
+     * @param int              $perPage
      * @param ArtistRepository $artistRepository
      *
      * @return Artist[]
@@ -43,5 +43,4 @@ class ArtistController extends AbstractController
     {
         return $artist;
     }
-
 }

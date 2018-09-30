@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Serializer\Normalizer;
 
@@ -17,6 +19,7 @@ class SongNormalizer implements NormalizerInterface
 
     /**
      * {@inheritdoc}
+     *
      * @param Song $object
      */
     public function normalize($object, $format = null, array $context = array())

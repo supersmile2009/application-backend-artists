@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\DataFixtures;
 
@@ -15,7 +17,7 @@ class AlbumFixtures extends Fixture implements DependentFixtureInterface
     public const THIRD_REFERENCE = 'album_third';
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getDependencies()
     {
@@ -25,7 +27,7 @@ class AlbumFixtures extends Fixture implements DependentFixtureInterface
     }
 
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function load(ObjectManager $manager)
     {

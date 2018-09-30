@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\EventListener;
 
@@ -12,5 +14,4 @@ class ArtistListener
     {
         $artist->setToken(TokenGenerator::generate(6));
     }
-
 }

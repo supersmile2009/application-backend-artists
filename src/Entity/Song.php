@@ -1,4 +1,6 @@
-<?php declare(strict_types=1);
+<?php
+
+declare(strict_types=1);
 
 namespace App\Entity;
 
@@ -31,7 +33,7 @@ class Song
      *
      * @ORM\Column(name="title", type="string", length=255)
      *
-     * @Assert\NotBlank()
+     * @Assert\NotBlank
      * @Assert\Length(max="255")
      */
     private $title;
@@ -43,7 +45,7 @@ class Song
      *
      * @ORM\Column(name="length", type="smallint")
      *
-     * @Assert\NotNull()
+     * @Assert\NotNull
      * @Assert\Range(min="1", max="32767")
      */
     private $length;
@@ -65,7 +67,7 @@ class Song
      * @ORM\ManyToOne(targetEntity="App\Entity\Album", inversedBy="songs")
      * @ORM\JoinColumn(name="album_id", referencedColumnName="id", onDelete="CASCADE", nullable=false)
      *
-     * @Assert\NotNull()
+     * @Assert\NotNull
      */
     protected $album;
 
@@ -115,7 +117,7 @@ class Song
     }
 
     /**
-     * Set song length from string formatted as "mm:ss"
+     * Set song length from string formatted as "mm:ss".
      *
      * @param string $length
      */
